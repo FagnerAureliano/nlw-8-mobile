@@ -22,19 +22,21 @@ export function ScreenshotButton({
       onPress={screenshot ? onRemoveShot : onTakeShot}
     >
       {screenshot ? (
-        <Trash
+        <View>
+          <Image 
+          style={styles.image}
+          source={{uri: screenshot}}
+          />
+
+          <Trash
             size={22}
             weight="fill"
             color={theme.colors.text_secondary}
             style={styles.removeIcon}
-           />
+          />
+        </View>
       ) : (
-        <Camera 
-            size={22} 
-            color={theme.colors.text_secondary} 
-            weight="bold"
-            
-        />
+        <Camera size={22} color={theme.colors.text_secondary} weight="bold" />
       )}
     </TouchableOpacity>
   );

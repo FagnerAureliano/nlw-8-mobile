@@ -1,9 +1,10 @@
 import React from "react";
 import { View, TextInput, Image, Text, TouchableOpacity } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
+
 import { FeedbackType } from "../Widget";
 import { ScreenshotButton } from "../ScreenshotButton";
-
+import { Button } from "../Button";
 import { styles } from "./styles";
 import { theme } from "../../theme";
 import { feedbackTypes } from "../../utils/feedbackTypes";
@@ -25,27 +26,23 @@ export function Form({ feedbackType }: Props) {
           />
         </TouchableOpacity>
         <View style={styles.titleContainer}>
-            <Image 
-            source={feedbackTypeInfo.image}
-            style={styles.image}
-            />
-          <Text style={styles.titleText}>
-              {feedbackTypeInfo.title}
-          </Text>
+          <Image source={feedbackTypeInfo.image} style={styles.image} />
+          <Text style={styles.titleText}>{feedbackTypeInfo.title}</Text>
         </View>
       </View>
-      <TextInput 
+      <TextInput
         multiline
         style={styles.input}
         placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
         placeholderTextColor={theme.colors.text_secondary}
       />
       <View style={styles.footer}>
-          <ScreenshotButton
-            onTakeShot={()=>{}}
-            onRemoveShot={()=>{}}
-            screenshot=""
-          />
+        <ScreenshotButton
+          onTakeShot={() => {}}
+          onRemoveShot={() => {}}
+          screenshot="https://github.com/fagneraureliano.png"
+        />
+        <Button isLoading={false}/>
       </View>
     </View>
   );
